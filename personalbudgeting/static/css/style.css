@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    padding: 1rem;
+    background-color: darkorange;
+    color: black;
+    font-size: 2rem;
+    height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+main {
+    flex-grow: 1;
+    place-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    content: center;
+    font-size: 3rem;
+    background-color: beige;
+    color: black;
+}
+
+h1, 
+p {
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #0000EE;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+a:hover {
+    opacity: .85;
+}
+
+.form-with-validation {
+    font-size: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.form-with-validation div {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-with-validation input {
+    padding: 0.25rem;
+    max-width: 300px;
+    align-items: center;
+}
+
+.form-submit {
+    padding: 0.5rem;
+    border-radius: 10px;
+    width: 125px;
+}
+
+.errorlist {
+    color: #F00;
+    margin-left: 2rem;
+}
+
+.logout {
+    display: inline-block;
+}
+
+.logout-button {
+    font-size: 2rem;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+    color: #0000EE;
+}
+
+.logout-button:hover {
+    opacity: .85;
+}
+
+.logout:visited {
+    color: #551A8B;
+}
+
+.text-center {
+    text-align: center;
+}
+/* ----------------------------------------------FIX AT SOME POINT------------------------------------------------------------------*/
+
+.budget-stats {
+    display: block; 
+    width: 100%;
+    
+}
+
+.budget-stats .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.row {margin: 0 -5px;}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+table {
+  display: table;
+  border-spacing: 2px;
+  box-sizing: border-box;
+  text-align: center;
+  border-collapse: collapse;
+  width: 95%;
+  margin: 0 auto;
+}
+
+tr {
+	border-bottom: 1px solid;
+    font-size: 35px;
+}
+
+th,
+td {
+	border: 1px solid;
+}
+
+.home-header{
+    text-align: center;
+    padding: 10pt;
+}
+
+.expenses{ 
+    text-align: center;}
+
+.instructions {
+  border: 2px solid #333;
+  padding: 1rem;
+  width: 100%;             /* Span full width */
+  text-align: left;        /* Align text to the left */
+  box-sizing: border-box;  /* Ensures padding doesn't overflow */
+  background-color: #fffbe6; /* Optional: nice soft yellow background */
+}
+
+.new-cat {
+    background-color: #f5f5dc; 
+    border: 2px solid #333;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+section.new-cat {
+    background-color: #f5f5dc !important; 
+    border: 2px solid #333 !important;
+    padding: 20px !important;
+    margin: 20px 0 !important;
+    font-family: Arial, sans-serif !important;
+}
+
+.new-cat h5 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.new-cat form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.new-cat label {
+    font-size: 18px;
+    display: block;
+}
+
+.new-cat input[type="text"],
+.new-cat select {
+    padding: 8px 12px;
+    font-size: 18px;
+    background-color: white;
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+.new-cat button {
+    background-color: #e0e0e0;
+    border: 2px solid #333;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.new-cat button:hover {
+    background-color: #d0d0d0;
+}
+
+.new-cat button:active {
+    background-color: #c0c0c0;
+}
+
+/* Form field container styling */
+.new-cat .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.new-cat .form-field:last-of-type {
+    margin-bottom: 0;
+}
+
+.csv-button{
+    background-color: #e0e0e0;
+    border: 2px solid #333;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 10px;
+}

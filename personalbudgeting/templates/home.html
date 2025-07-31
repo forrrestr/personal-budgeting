@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1>Control Center</h1>
+
+   <div class="container">
+ <!-- Coming Back to do    
+        <h3 class="home-header" id="view-title">Current Month View</h3>
+
+   
+        <section class="budget-stats">
+            <div class="row">
+
+                <div class="column">
+                    <div class="card">
+                        <h4 id="budget-title">YTD Budget</h4>
+                        <h2>$TBD</h2>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <h4 id="expenses-title">YTD Expenses</h4>
+                        <h2>$TBD</h2>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <h4 id="">YTD Differene</h4>
+                        <h2>$TBD</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+-->
+  <div class="container">
+
+        <h3 class="home-header">Full Year View</h3>
+
+        <section class="budget-stats">
+            <div class="row">
+
+                <div class="column">
+                    <div class="card">
+                        <h4>Budget</h4>
+                        <h2>${{ totat_income_budget }}</h2>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <h4>Expenses</h4>
+                        <h2>${{ total_expense_budget }}</h2>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <h4>Differene</h4>
+                        <h2>${{totat_budget}}</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<script src="../static/js/main.js"></script>
+
+<script>
+// Update the titles with current month after the page loads
+const currentMonth = current_month_name();
+document.getElementById("view-title").textContent = currentMonth + " View";
+document.getElementById("budget-title").textContent = currentMonth + " Budget";
+document.getElementById("expenses-title").textContent = currentMonth + " Expenses";
+document.getElementById("difference-title").textContent = currentMonth + " Difference";
+</script>
+
+{% endblock %}

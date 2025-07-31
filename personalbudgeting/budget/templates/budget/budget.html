@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Budget 
+{% endblock %}
+
+{% block content %}
+    <h1>Budget</h1>
+
+        <section class="instructions">
+            <p>To use this page you may:</p>
+            <p>   1. Enter expenses on the bottom row of either the income or expense tables, and click the save button to add an income stream or expense </p>
+            <p>   2. Enter the category you want to add. This will be what you expect to spend month on (Housing, Food, Fun, etc.,),</p>
+            <p>   3. Include how much money you expect to spend in a given year for those expense,</p>
+            <p>   4. If you want to come back and edit or delete this line, you may do so with the edit and delete button.</p>
+        </section>
+
+        <section class="new-cat">
+        <h5>Add a new budget category for Income of Expenses.</h5>
+        <form method="post">
+            {% csrf_token %}
+            {{ budget_cat_form }}
+            <button name="new-cat-save">Save</button>
+        </form>
+        </section>
+
+        <section class="expenses">
+            <h3>Income Budget</h3>
+
+            <div class="budget-income-table">
+                <form method="post" action="{% url 'budget:budget' %}">
+                    {% csrf_token %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Year</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for budget in income_budget %}
+                        <tr>
+                            {% if monthly_budget_form.instance.id == budget.id %}
+                            {% include 'budget/save_budget.html' %}
+                            {% else %}
+                            <td>{{budget.category}}</td>
+                            <td>${{budget.amount}}</td>
+                            <td>{{budget.year}}</td>
+                            <th> <!-- <button formnovalidate name="edit" value="{{ budget.id}}">Edit</button>-->
+                            <button formnovalidate name="delete" value="{{ budget.id}}" title="Deleting this value will remove it from the database. Before proceeding becuase that you no longer need this value.">Del</button></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                        {% if not monthly_budget_form.instance.id %}
+                        <tr>
+                            {% include 'budget/save_budget.html' %}
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                </form>
+            </div>
+
+        </section>
+
+                <section class="expenses">
+            <h3>Expenses Budget</h3>
+
+            <div class="budget-income-table">
+                <form method="post" action="{% url 'budget:budget' %}">
+                    {% csrf_token %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Year</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for budget in expense_budget %}
+                        <tr>
+                            <td>{{budget.category}}</td>
+                            <td>${{budget.amount}}</td>
+                            <td>{{budget.year}}</td>
+                            <th> <!-- <button formnovalidate name="edit" value="{{ budget.id}}">Edit</button> -->
+                            <button formnovalidate name="delete" value="{{ budget.id}}" title="Deleting this value will remove it from the database. Before proceeding becuase that you no longer need this value.">Del</button></td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            {% include 'budget/save_budget.html' %}
+                        </tr>
+                    </tbody>
+                </table>
+                </form>
+            </div>
+
+
+<button class="csv-button"><a href="{% url 'budget:budget_csv' %}">Budget CSV</a></button>
+
+{% endblock %}

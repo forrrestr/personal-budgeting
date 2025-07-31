@@ -1,0 +1,10 @@
+<td>{{ monthly_budget_form.category }}</td>
+<td>{{ monthly_budget_form.amount }}</td>
+<td>{{ monthly_budget_form.year }}</td>
+<td>
+    <button type="submit" name="save">Save</button>
+    {% if monthly_budget_form.instance.id %}
+        <input type="hidden" name="budget_id" value="{{ monthly_budget_form.instance.id }}">
+        <button type="submit" name="cancel">Cancel</button>
+    {% endif %}
+</td>

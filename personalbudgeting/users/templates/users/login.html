@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    User Login
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+<h2>User Login</h2>
+<form class="form-with-validation" action="/users/login/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button class="form-submit">Submit</button>
+</form>
+<a href="{% url 'users:register' %}">Create a New Account</a>
+<p>Take control of your person finances with your own personal budget to help keep progress of your financial goals.</p>
+</div>
+{% endblock %}
